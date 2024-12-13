@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="mainPane" prefHeight="596.0" prefWidth="953.0" style="-fx-background-color: #2C3E50;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finquest.finquest.controller.IncomeController">
+    <top>
+        <!-- Header -->
+        <VBox alignment="CENTER" spacing="10">
+         <children>
+            <AnchorPane prefHeight="30.0" prefWidth="953.0">
+               <children>
+                  <Label layoutX="317.0" layoutY="-1.0" style="-fx-text-fill: #ff0000;" text="Income" textFill="RED">
+                     <font>
+                        <Font name="System Bold" size="26.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+            <!-- Add any additional header elements if needed -->
+        </VBox>
+    </top>
+    <center>
+        <!-- Main content -->
+        <AnchorPane prefHeight="530.0" prefWidth="800.0">
+            <children>
+            <ImageView blendMode="OVERLAY" cache="true" cacheHint="SPEED" fitHeight="642.0" fitWidth="953.0" layoutX="-1.0" layoutY="-72.0" opacity="0.42">
+               <image>
+                  <Image url="@../Images/income.jpg" />
+               </image>
+            </ImageView>
+                <!-- Table to display Income data -->
+                <TableView fx:id="incomeTable" layoutX="38.0" layoutY="307.0" onMouseClicked="#incomeTableAction" opacity="0.85" prefHeight="190.0" prefWidth="740.0" style="-fx-background-color: #34495E;">
+                    <columns>
+                  <TableColumn fx:id="colId" prefWidth="89.0" style="-fx-text-fill: black;" text="Income ID" />
+                        <TableColumn fx:id="colamount" prefWidth="125.0" style="-fx-text-fill: black;" text="Income Amount " />
+                        <TableColumn fx:id="descriptionColumn" prefWidth="138.33334350585938" style="-fx-text-fill: black;" text="Description" />
+                        <TableColumn fx:id="dateCol" prefWidth="119.66665649414062" style="-fx-text-fill: black;" text="Date" />
+                  <TableColumn fx:id="categorcol" prefWidth="154.6666259765625" style="-fx-text-fill: black;" text="Category" />
+                  <TableColumn fx:id="accCol" prefWidth="108.66668701171875" style="-fx-text-fill: black;" text="Account" />
+                        <!-- Add additional columns as needed -->
+                    </columns>
+                </TableView>
+            <VBox alignment="CENTER" layoutX="95.0" layoutY="45.0" prefHeight="241.0" prefWidth="369.0" spacing="10">
+               <children>
+                  <AnchorPane prefWidth="455.0">
+                     <children>
+                        <TextField fx:id="txtIncomeId" layoutX="266.0" onAction="#idAction" onKeyReleased="#txtIdAction" prefHeight="25.0" prefWidth="169.0" promptText="Enter Income ID" />
+                        <Label layoutX="150.0" layoutY="4.0" text="Income ID" textFill="#17d0e1" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefWidth="455.0">
+                     <children>
+                        <TextField fx:id="amountFeild" layoutX="266.0" onKeyReleased="#txtAmountAction" prefHeight="25.0" prefWidth="169.0" promptText="Enter Amount" />
+                        <Label layoutX="150.0" layoutY="4.0" text="Income Amount :" textFill="#17d0e1" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane>
+                     <children>
+                        <TextField fx:id="desFeild" layoutX="266.0" onKeyReleased="#txtDesAction" prefHeight="25.0" prefWidth="170.0" promptText="Detail" />
+                        <Label layoutX="150.0" layoutY="4.0" text="Description" textFill="#17d0e1" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane>
+                     <children>
+                        <Label layoutX="150.0" layoutY="4.0" text="Date :" textFill="#17d0e1" />
+                        <DatePicker fx:id="datePicker" layoutX="267.0" prefHeight="25.0" prefWidth="168.0" promptText="Date" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane>
+                     <children>
+                        <Label layoutX="150.0" layoutY="4.0" text="Category :" textFill="#17d0e1" />
+                        <ChoiceBox fx:id="catogorychoisebox" layoutX="269.0" layoutY="1.0" prefHeight="25.0" prefWidth="167.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane>
+                     <children>
+                        <Label layoutX="150.0" layoutY="4.0" text="Account :" textFill="#17d0e1" />
+                        <ChoiceBox fx:id="accchoisebox" layoutX="269.0" prefHeight="25.0" prefWidth="167.0" />
+                     </children>
+                  </AnchorPane>
+                     <!-- Buttons for actions -->
+                     <Button onAction="#addIncome" style="-fx-background-color: #2980B9; -fx-text-fill: #ECF0F1;" text="Add Income" />
+               </children>
+            </VBox>
+            <Label fx:id="lblTotalIncome" layoutX="539.0" layoutY="118.0" prefHeight="47.0" prefWidth="242.0" textFill="#ff0202">
+               <font>
+                  <Font name="Franklin Gothic Medium Italic" size="30.0" />
+               </font>
+            </Label>
+               <Button layoutX="577.0" layoutY="512.0" onAction="#updateIncome" style="-fx-background-color: #8E44AD; -fx-text-fill: #ECF0F1;" text="Update Income" />
+               <Button layoutX="688.0" layoutY="512.0" onAction="#deleteIncome" style="-fx-background-color: #C0392B; -fx-text-fill: #ECF0F1;" text="Delete Income" />
+            </children>
+        </AnchorPane>
+    </center>
+    <bottom>
+        <!-- Footer -->
+        <HBox alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="953.0" spacing="10" />
+    </bottom>
+</BorderPane>

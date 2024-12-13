@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="mainPane" prefHeight="606.0" prefWidth="827.0" style="-fx-background-color: #2C3E50;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finquest.finquest.controller.DashboardController">
+    <top>
+        <!-- Header -->
+        <VBox alignment="CENTER" prefHeight="9.0" prefWidth="959.0" spacing="10">
+         <children>
+                 <Label fx:id="labelDashboard" contentDisplay="CENTER" prefHeight="12.0" prefWidth="134.0" style="-fx-text-fill: #ff0000;" text="Dashboard" textAlignment="JUSTIFY" textFill="RED">
+                     <font>
+                         <Font name="System Bold" size="24.0" />
+                     </font>
+                 </Label>
+         </children>
+            <!-- Add any additional header elements if needed -->
+        </VBox>
+    </top>
+   <center>
+        <!-- Main content -->
+        <AnchorPane fx:id="changeAnchorPane" prefHeight="530.0" prefWidth="750.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="612.0" fitWidth="798.0" layoutX="-3.0" layoutY="-34.0" opacity="0.3">
+               <image>
+                  <Image url="@../Images/dashboard%202.jpg" />
+               </image>
+               <effect>
+                  <Blend />
+               </effect>
+            </ImageView>
+            <VBox alignment="BOTTOM_RIGHT" layoutX="644.0" layoutY="472.0" spacing="10">
+               <children>
+                  <MenuButton fx:id="addNewTra" mnemonicParsing="false" onAction="#addNewTransaction" text="Add New Transaction " textFill="#eb0c0c">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#addIncomeAction" text="Add Income" />
+                      <MenuItem mnemonicParsing="false" onAction="#addExpenceAction" text="Add Expance" />
+                    </items>
+                     <effect>
+                        <Blend mode="SOFT_LIGHT">
+                           <topInput>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                              </Lighting>
+                           </topInput>
+                        </Blend>
+                     </effect>
+                  </MenuButton>
+                  <Button mnemonicParsing="false" onAction="#addNewBudget" text="Add New Budget" textFill="#eb0c0c">
+                     <effect>
+                        <Blend mode="LIGHTEN" />
+                     </effect>
+                  </Button>
+               </children>
+            </VBox>
+            <TitledPane layoutX="92.0" layoutY="62.0" prefHeight="182.0" prefWidth="181.0" text="Total Income" textFill="#120075" wrapText="true">
+               <content>
+                  <AnchorPane fx:id="totalAnchorpane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView cache="true" cacheHint="QUALITY" fitHeight="155.0" fitWidth="183.0" layoutX="-1.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../Images/dash/Screenshot%202024-05-10%20210941.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="lbnTotalIncome" layoutX="10.0" layoutY="26.0" prefHeight="31.0" prefWidth="161.0" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold Italic" size="22.0" />
+                           </font></Label>
+                        <Label fx:id="fromincomecountdash" layoutX="8.0" layoutY="109.0" prefHeight="15.0" prefWidth="163.0" textFill="RED">
+                           <font>
+                              <Font name="System Bold Italic" size="10.0" />
+                           </font>
+                        </Label>
+                     </children></AnchorPane>
+               </content>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </TitledPane>
+            <TitledPane layoutX="316.0" layoutY="64.0" prefHeight="182.0" prefWidth="181.0" text="Total Expance" textFill="#120075">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView cache="true" cacheHint="QUALITY" fitHeight="152.0" fitWidth="190.0" layoutX="-10.0" layoutY="-1.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../Images/dash/Screenshot%202024-05-10%20211001.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="lbnTotalExpense" layoutX="9.0" layoutY="25.0" prefHeight="31.0" prefWidth="161.0" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold Italic" size="22.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="fromexpensecountdash" layoutX="6.0" layoutY="108.0" prefHeight="15.0" prefWidth="166.0" textFill="RED">
+                           <font>
+                              <Font name="System Bold Italic" size="10.0" />
+                           </font>
+                        </Label>
+                     </children></AnchorPane>
+               </content>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </TitledPane>
+            <TitledPane layoutX="543.0" layoutY="65.0" prefHeight="182.0" prefWidth="181.0" text="Available Budget" textFill="#120075">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView cache="true" cacheHint="QUALITY" fitHeight="152.0" fitWidth="181.0" layoutX="-1.0" layoutY="1.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../Images/dash/Screenshot%202024-05-10%20211016.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="lbnTotalBuget" layoutX="8.0" layoutY="21.0" prefHeight="31.0" prefWidth="163.0" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold Italic" size="22.0" />
+                           </font></Label>
+                        <Label fx:id="frombudgetcountdash" layoutX="5.0" layoutY="108.0" prefHeight="15.0" prefWidth="170.0" textFill="RED">
+                           <font>
+                              <Font name="System Bold Italic" size="10.0" />
+                           </font>
+                        </Label>
+                     </children></AnchorPane>
+               </content>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </TitledPane>
+            <TitledPane layoutX="198.0" layoutY="277.0" prefHeight="182.0" prefWidth="181.0" text="Goals From Categories" textFill="#120075">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView cache="true" cacheHint="QUALITY" fitHeight="158.0" fitWidth="184.0" layoutX="-2.0" layoutY="1.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../Images/dash/Screenshot%202024-05-10%20211035.png" />
+                           </image>
+                        </ImageView>
+                        <ProgressBar layoutX="25.0" layoutY="115.0" prefHeight="24.0" prefWidth="133.0" />
+                        <Label fx:id="lbnTotalgoalpresentage" layoutX="12.0" layoutY="22.0" prefHeight="88.0" prefWidth="157.0" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold Italic" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </content>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </TitledPane>
+            <TitledPane layoutX="438.0" layoutY="275.0" prefHeight="182.0" prefWidth="181.0" text="Reminders" textFill="#120075">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView blendMode="DARKEN" cache="true" cacheHint="QUALITY" fitHeight="155.0" fitWidth="187.0" layoutX="-4.0" layoutY="1.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../Images/dash/Screenshot%202024-05-10%20211046.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="lbnTotalremindercount" layoutX="50.0" layoutY="27.0" prefHeight="62.0" prefWidth="105.0" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold Italic" size="41.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="fromgoalcountdash" layoutX="17.0" layoutY="118.0" prefHeight="15.0" prefWidth="148.0" textFill="RED">
+                           <font>
+                              <Font name="System Bold Italic" size="10.0" />
+                           </font>
+                        </Label>
+                     </children></AnchorPane>
+               </content>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </TitledPane>
+         </children>
+        </AnchorPane>
+   </center>
+   <left>
+      <Pane prefHeight="578.0" prefWidth="164.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView blendMode="OVERLAY" cache="true" fitHeight="613.0" fitWidth="166.0" layoutY="-32.0" nodeOrientation="INHERIT" opacity="0.55">
+               <image>
+                  <Image url="@../Images/dashboard%201.jpg" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </ImageView>
+            <Pane prefHeight="327.0" prefWidth="200.0">
+               <children>
+                  <VBox prefHeight="330.0" prefWidth="168.0">
+                     <children>
+                        <Label fx:id="Dashboard" alignment="CENTER" contentDisplay="TEXT_ONLY" onMouseClicked="#dashboardAction" prefHeight="41.0" prefWidth="166.0" text="Dashboard" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="Budget" alignment="CENTER" contentDisplay="TEXT_ONLY" onMouseClicked="#budgetAction" prefHeight="42.0" prefWidth="166.0" text="Budget" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="Income" alignment="CENTER" contentDisplay="TEXT_ONLY" layoutX="10.0" layoutY="40.0" onMouseClicked="#incomeAction" prefHeight="41.0" prefWidth="164.0" text="Income" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="Expense" alignment="CENTER" contentDisplay="TEXT_ONLY" layoutX="10.0" layoutY="70.0" onMouseClicked="#expenceAction" prefHeight="42.0" prefWidth="167.0" text="Expense" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="FinantialAccount" alignment="CENTER" contentDisplay="TEXT_ONLY" layoutX="10.0" layoutY="100.0" onMouseClicked="#fiAccAction" prefHeight="39.0" prefWidth="166.0" text="Finantial Account" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="FinantialGoal" alignment="CENTER" contentDisplay="TEXT_ONLY" layoutX="10.0" layoutY="130.0" onMouseClicked="#goalAction" prefHeight="42.0" prefWidth="166.0" text="Finantial Goal" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="Reminder" alignment="CENTER" contentDisplay="TEXT_ONLY" layoutX="10.0" layoutY="217.0" onMouseClicked="#reminderAction" prefHeight="42.0" prefWidth="164.0" text="Reminder" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="Reports" alignment="CENTER" contentDisplay="TEXT_ONLY" layoutX="10.0" layoutY="259.0" onMouseClicked="#reportsAction" prefHeight="42.0" prefWidth="166.0" text="Reports" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
+            <Pane layoutY="330.0" prefHeight="248.0" prefWidth="164.0">
+               <children>
+                  <Button alignment="BOTTOM_LEFT" layoutX="38.0" layoutY="182.0" onAction="#navigateToLogin" opacity="0.87" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: rgba(239,6,6,0.76); -fx-text-fill: white; -fx-font-size: 16px;" text="Log out" textAlignment="RIGHT" textFill="WHITE" textOverrun="CLIP">
+                     <font>
+                        <Font name="Constantia Bold Italic" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </left>
+</BorderPane>
