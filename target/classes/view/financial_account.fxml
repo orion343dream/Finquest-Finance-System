@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="mainPane" prefHeight="597.0" prefWidth="961.0" style="-fx-background-color: #2C3E50;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finquest.finquest.controller.FinancialAccountController">
+    <top>
+        <!-- Header -->
+        <VBox alignment="CENTER" prefHeight="27.0" prefWidth="665.0" spacing="10">
+            <AnchorPane prefHeight="29.0" prefWidth="960.0">
+                <children>
+                    <Label layoutX="267.0" layoutY="-4.0" style="-fx-text-fill: #ff0000;" text="Financial Account" textFill="RED">
+                        <font>
+                            <Font name="System Bold" size="24.0" />
+                        </font>
+                    </Label>
+                </children>
+            </AnchorPane>
+            <!-- Add any additional header elements if needed -->
+        </VBox>
+    </top>
+    <center>
+        <!-- Main content -->
+        <AnchorPane prefHeight="561.0" prefWidth="797.0">
+            <children>
+            <ImageView blendMode="OVERLAY" cache="true" cacheHint="SPEED" fitHeight="631.0" fitWidth="799.0" layoutX="-2.0" layoutY="-63.0" opacity="0.42">
+               <image>
+                  <Image url="@../Images/financial%20account.jpg" />
+               </image>
+            </ImageView>
+                <!-- Table to display expense data -->
+                <TableView fx:id="FacctableTable" layoutX="30.0" layoutY="250.0" onMouseClicked="#accountTableAction" opacity="0.85" prefHeight="226.0" prefWidth="737.0" style="-fx-background-color: #34495E;">
+                    <columns>
+                  <TableColumn fx:id="colId" prefWidth="83.66666412353516" style="-fx-text-fill: black;" text="Account ID" />
+                        <TableColumn fx:id="colName" prefWidth="111.66667175292969" style="-fx-text-fill: black;" text="Account Name" />
+                        <TableColumn fx:id="colAccNumber" prefWidth="170.00003051757812" style="-fx-text-fill: black;" text="Account Number" />
+                  <TableColumn fx:id="colAccType" minWidth="4.0" prefWidth="189.6666259765625" style="-fx-text-fill: black;" text="Account Type" />
+                        <TableColumn fx:id="colBalance" prefWidth="176.3333740234375" style="-fx-text-fill: black;" text="Innitial Balance" />
+                        <!-- Add additional columns as needed -->
+                    </columns>
+                </TableView>
+                <VBox alignment="CENTER" layoutX="189.0" layoutY="14.0" prefHeight="212.0" prefWidth="422.0" spacing="10">
+                    <children>
+                  <AnchorPane>
+                     <children>
+                        <TextField fx:id="idFeild" layoutX="228.0" layoutY="-3.0" onAction="#onSearchAction" onKeyReleased="#txtIdAction" promptText="Enter Id" />
+                        <Label layoutX="78.0" layoutY="1.0" text="Finantial Account ID :" textFill="#17d0e1" />
+                     </children>
+                  </AnchorPane>
+                        <AnchorPane>
+                            <children>
+                                <TextField fx:id="nameField" layoutX="228.0" layoutY="-3.0" onKeyReleased="#txtNameAction" promptText="Enter Name" />
+                                <Label layoutX="78.0" layoutY="1.0" text="Finantial Account Name :" textFill="#17d0e1" />
+                            </children>
+                        </AnchorPane>
+                        <AnchorPane>
+                            <children>
+                                <TextField fx:id="numberFeild" layoutX="228.0" onKeyReleased="#txtNumberAction" promptText="Enter Number" />
+                                <Label layoutX="81.0" layoutY="4.0" text="Account Number :" textFill="#17d0e1" />
+                            </children>
+                        </AnchorPane>
+                  <AnchorPane>
+                     <children>
+                        <Label layoutX="80.0" layoutY="4.0" text="Account Type :" textFill="#17d0e1" />
+                        <ChoiceBox fx:id="acctypechoisebox" layoutX="228.0" prefWidth="150.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane>
+                     <children>
+                        <TextField fx:id="balanaceFeild" layoutX="228.0" onKeyReleased="#txtBalanceAction" promptText="Enter Balance (numbers only)" />
+                        <Label layoutX="78.0" layoutY="4.0" text="Innitial Balance :" textFill="#17d0e1" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="10.0" layoutY="179.0" />
+                        <Button onAction="#addFinancialAccount" style="-fx-background-color: #2980B9; -fx-text-fill: #ECF0F1;" text="Add Financial Account" />
+                    </children>
+                </VBox>
+               <Button layoutX="468.0" layoutY="495.0" onAction="#UpdateFinancialAccount" style="-fx-background-color: #8E44AD; -fx-text-fill: #ECF0F1;" text="Update Financial Account" />
+               <Button layoutX="630.0" layoutY="494.0" onAction="#deleteFinancialAccount" style="-fx-background-color: #C0392B; -fx-text-fill: #ECF0F1;" text="Delete Financial Account" />
+            </children>
+        </AnchorPane>
+    </center>
+    <bottom>
+        <!-- Footer -->
+        <HBox alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="960.0" spacing="10" />
+    </bottom>
+</BorderPane>

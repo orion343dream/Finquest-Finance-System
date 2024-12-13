@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="mainPane" prefHeight="595.0" prefWidth="928.0" style="-fx-background-color: #2C3E50;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finquest.finquest.controller.FinancialGoalController">
+    <top>
+        <!-- Header -->
+        <VBox alignment="CENTER" prefHeight="27.0" prefWidth="665.0" spacing="10">
+            <AnchorPane prefHeight="27.0" prefWidth="766.0">
+                <children>
+                    <Label layoutX="294.0" layoutY="-3.0" style="-fx-text-fill: #ff0000;" text="Financial Goal" textFill="RED">
+                        <font>
+                            <Font name="System Bold" size="24.0" />
+                        </font>
+                    </Label>
+                </children>
+            </AnchorPane>
+            <!-- Add any additional header elements if needed -->
+        </VBox>
+    </top>
+    <center>
+        <!-- Main content -->
+        <AnchorPane prefHeight="530.0" prefWidth="800.0">
+            <children>
+            <ImageView blendMode="OVERLAY" cache="true" cacheHint="SPEED" fitHeight="630.0" fitWidth="789.0" layoutY="-65.0" opacity="0.42">
+               <image>
+                  <Image url="@../Images/financial%20goal.jpg" />
+               </image>
+            </ImageView>
+                <!-- Table to display expense data -->
+                <TableView fx:id="FgoalTable" layoutX="35.0" layoutY="272.0" onMouseClicked="#goalTableAction" opacity="0.86" prefHeight="201.0" prefWidth="728.0" style="-fx-background-color: #34495E;">
+                    <columns>
+                        <TableColumn fx:id="colgoalname" prefWidth="209.33334350585938" style="-fx-text-fill: black;" text="Goal Name" />
+                        <TableColumn fx:id="coldate" prefWidth="118.33334350585938" style="-fx-text-fill: black;" text="Target Date" />
+                        <TableColumn fx:id="colamount" prefWidth="181.66665649414062" style="-fx-text-fill: black;" text="Target Amount" />
+                  <TableColumn fx:id="colcategory" prefWidth="217.99996948242188" style="-fx-text-fill: black;" text="Catogory" />
+                        <!-- Add additional columns as needed -->
+                    </columns>
+                </TableView>
+                <VBox alignment="CENTER" layoutX="81.0" layoutY="14.0" prefHeight="252.0" prefWidth="441.0" spacing="10">
+                    <children>
+                        <AnchorPane>
+                            <children>
+                                <TextField fx:id="GnameField" layoutX="228.0" layoutY="-3.0" onAction="#onSearchAction" onKeyReleased="#txtNameAction" promptText="Name" />
+                                <Label layoutX="127.0" text="Goal name :" textFill="#17d0e1" />
+                            </children>
+                        </AnchorPane>
+                        <AnchorPane>
+                            <children>
+                                <TextField fx:id="targetAmountField" layoutX="228.0" onKeyReleased="#txtAmountAction" promptText="Target Amount" />
+                                <Label layoutX="123.0" layoutY="4.0" text="Target Amount :" textFill="#17d0e1" />
+                            </children>
+                        </AnchorPane>
+                  <AnchorPane>
+                     <children>
+                        <Label layoutX="123.0" layoutY="4.0" text="Target Date :" textFill="#17d0e1" />
+                              <DatePicker fx:id="targetDatePicker" layoutX="228.0" layoutY="-1.0" prefHeight="25.0" prefWidth="148.0" promptText="Target Date" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane>
+                     <children>
+                        <Label layoutX="123.0" layoutY="4.0" text="Target Goal :" textFill="#17d0e1" />
+                        <ChoiceBox fx:id="targetgoalchoisebox" layoutX="226.0" prefWidth="150.0" />
+                     </children>
+                  </AnchorPane>
+                        <Button onAction="#addFinancialGoal" style="-fx-background-color: #2980B9; -fx-text-fill: #ECF0F1;" text="Add Financial Goal" />
+                    </children>
+                </VBox>
+            <ProgressBar layoutX="532.0" layoutY="103.0" prefHeight="16.0" prefWidth="200.0" progress="0.56" />
+               <Button layoutX="494.0" layoutY="506.0" onAction="#UpdateFinancialGoal" style="-fx-background-color: #8E44AD; -fx-text-fill: #ECF0F1;" text="Update Financial Goal" />
+               <Button layoutX="632.0" layoutY="506.0" onAction="#deleteFinancialGoal" style="-fx-background-color: #C0392B; -fx-text-fill: #ECF0F1;" text="Delete Financial Goal" />
+            </children>
+        </AnchorPane>
+    </center>
+    <bottom>
+        <!-- Footer -->
+        <HBox alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="928.0" spacing="10" />
+    </bottom>
+</BorderPane>

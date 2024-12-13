@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="mainPane" prefHeight="595.0" prefWidth="882.0" style="-fx-background-color: #2C3E50;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finquest.finquest.controller.BudgetController">
+    <top>
+        <!-- Header -->
+        <VBox alignment="CENTER" prefHeight="27.0" prefWidth="665.0" spacing="10">
+            <AnchorPane prefHeight="27.0" prefWidth="766.0">
+                <children>
+                    <Label fx:id="NBudget" layoutX="297.0" layoutY="-2.0" style="-fx-text-fill: #ff0000;" text="Budget" textFill="RED">
+                        <font>
+                            <Font name="System Bold" size="24.0" />
+                        </font>
+                    </Label>
+                </children>
+            </AnchorPane>
+            <!-- Add any additional header elements if needed -->
+        </VBox>
+    </top>
+    <center>
+        <!-- Main content -->
+        <AnchorPane prefHeight="571.0" prefWidth="882.0">
+         <children>
+            <ImageView blendMode="OVERLAY" cache="true" cacheHint="SPEED" fitHeight="636.0" fitWidth="880.0" layoutX="-1.0" layoutY="-68.0" opacity="0.42">
+               <image>
+                  <Image url="@../Images/budget.jpg" />
+               </image>
+            </ImageView>
+            <VBox alignment="CENTER" layoutX="36.0" layoutY="14.0" prefHeight="221.0" prefWidth="462.0" spacing="10">
+               <children>
+                  <AnchorPane prefWidth="455.0">
+                     <children>
+                        <TextField fx:id="nameField" layoutX="266.0" onAction="#nameAction" onKeyReleased="#txtNameAction" prefHeight="25.0" prefWidth="169.0" promptText="Name" />
+                        <Label layoutX="150.0" layoutY="4.0" text="Budget Name :" textFill="#17d0e1" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane>
+                     <children>
+                        <TextField fx:id="amountField" layoutX="266.0" onKeyReleased="#txtAmountAction" prefHeight="25.0" prefWidth="170.0" promptText="Amount" />
+                        <Label layoutX="150.0" layoutY="4.0" text="Budget Amount :" textFill="#17d0e1" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="25.0" prefWidth="441.0">
+                     <children>
+                        <Label layoutX="150.0" layoutY="4.0" text="Start Date :" textFill="#17d0e1" />
+                        <DatePicker fx:id="startDatePicker" layoutX="264.0" promptText="Start Date" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane>
+                     <children>
+                        <Label layoutX="150.0" layoutY="4.0" text="End Date :" textFill="#17d0e1" />
+                        <DatePicker fx:id="endDatePicker" layoutX="264.0" promptText="End Date" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane />
+                     <!-- Buttons for actions -->
+                     <Button onAction="#addBudget" style="-fx-background-color: #2980B9; -fx-text-fill: #ECF0F1;" text="Add Budget" />
+               </children>
+            </VBox>
+            <TableView fx:id="budgetTable" layoutX="32.0" layoutY="287.0" onMouseClicked="#budgetTableAction" opacity="0.85" prefHeight="202.0" prefWidth="741.0" style="-fx-background-color: #34495E;">
+               <columns>
+                  <TableColumn fx:id="nameCol" prefWidth="200.0" style="-fx-text-fill: black;" text="Name" />
+                  <TableColumn fx:id="amontCol" prefWidth="200.0" style="-fx-text-fill: black;" text="Amount" />
+                  <TableColumn fx:id="startDateCol" prefWidth="150.0" style="-fx-text-fill: black;" text="Start Date" />
+                  <TableColumn fx:id="endDateCol" prefWidth="185.0" style="-fx-text-fill: black;" text="End Date" />
+               </columns>
+            </TableView>
+            <AnchorPane layoutX="527.0" layoutY="239.0" prefHeight="30.0" prefWidth="262.0" visible="false">
+               <children>
+                  <Label layoutX="14.0" layoutY="-1.0" prefHeight="32.0" prefWidth="182.0" text="Budget limit -" textFill="#fcfcfc">
+                     <font>
+                        <Font name="Georgia" size="18.0" />
+                     </font>
+                  </Label>
+                  <Text fill="#ff0031" layoutX="121.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="151.47000122070312">
+                     <font>
+                        <Font name="Georgia Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="amountField1" layoutX="116.0" layoutY="3.0" prefHeight="25.0" prefWidth="134.0" promptText="Enter Limit" />
+               </children>
+            </AnchorPane>
+            <LineChart layoutX="587.0" layoutY="158.0" prefHeight="81.0" prefWidth="183.0" visible="false">
+              <xAxis>
+                <CategoryAxis label="Time" side="BOTTOM" tickLabelFill="#ff0011" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis label="Money" side="LEFT" tickLabelFill="RED" />
+              </yAxis>
+            </LineChart>
+            <AnchorPane layoutX="480.0" layoutY="91.0" prefHeight="44.0" prefWidth="364.0">
+               <children>
+                  <Label layoutX="34.0" layoutY="6.0" text="Total Budget  -" textFill="#fcfcfc">
+                     <font>
+                        <Font name="Georgia" size="20.0" />
+                     </font>
+                  </Label>
+                  <Text fx:id="totalBudget" fill="#e1d1d1" layoutX="180.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="147.4700927734375">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+               <Button layoutX="555.0" layoutY="501.0" onAction="#UpdateBduget" style="-fx-background-color: #8E44AD; -fx-text-fill: #ECF0F1;" text="Update Budget" />
+               <Button layoutX="663.0" layoutY="502.0" onAction="#DeleteBudget" style="-fx-background-color: #C0392B; -fx-text-fill: #ECF0F1;" text="Delete Budget" />
+         </children>
+        </AnchorPane>
+    </center>
+    <bottom>
+        <!-- Footer -->
+        <HBox alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="938.0" spacing="10" />
+    </bottom>
+</BorderPane>
